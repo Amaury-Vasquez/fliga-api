@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:13
+    hostname: fliga
+    environment:
+      - POSTGRES_DB=fliga
+      - POSTGRES_USER=amvasdev
+      - POSTGRES_PASSWORD=development*
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: amvasdev@mail.com
+      PGADMIN_DEFAULT_PASSWORD: development*
+    ports:
+      - "5050:80"
