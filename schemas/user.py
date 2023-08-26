@@ -17,3 +17,11 @@ class UserData(BaseModel):
     name: str
     lastname: str
     email: str
+        
+class UserRegistered(BaseModel):
+    isValid: bool
+    data: UserData
+    
+class UserAuthFailed(BaseModel):
+    isValid: bool
+    fields: dict
